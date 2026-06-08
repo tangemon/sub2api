@@ -1,0 +1,13 @@
+packages:
+  - "."
+
+storeDir: .pnpm-store
+ignoreScripts: false
+autoInstallPeers: true
+
+overrides:
+  js-cookie: 3.0.7
+
+allowBuilds:
+  esbuild: true
+  vue-demi: true
