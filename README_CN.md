@@ -435,6 +435,31 @@ pnpm run build
 cd ../backend
 go build -tags embed -o sub2api ./cmd/server
 
+##########
+已验证通过：
+
+  cd backend
+  env GOPATH=/tmp/sub2api-go-path GOCACHE=/tmp/sub2api-go-build GOPROXY=https://goproxy.cn,direct \
+    go build -tags embed -o sub2api ./cmd/server
+
+  结果：
+
+  - 构建成功
+  - 产物：backend/sub2api
+  - 大小：118M
+  - 工作树干净，无源码改动
+
+  你本地可以直接用国内代理重试：
+
+  GOPROXY=https://goproxy.cn,direct go build -tags embed -o sub2api ./cmd/server
+
+  如果还断，可以先清掉半下载的工具链锁/缓存后重试：
+
+  go clean -modcache
+  GOPROXY=https://goproxy.cn,direct go build -tags embed -o sub2api ./cmd/server
+##########
+
+
 # 5. 创建配置文件
 cp ../deploy/config.example.yaml ./config.yaml
 
